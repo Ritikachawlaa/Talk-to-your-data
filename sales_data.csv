@@ -1,0 +1,11 @@
+Date,Product,Category,Price,Quantity,Salesperson,Region
+2023-01-05 00:00:00,Laptop,Electronics,1200,2,Alice,East
+2023-01-12 00:00:00,Mouse,Accessories,25,5,Bob,West
+2023-01-19 00:00:00,Keyboard,Accessories,75,3,Charlie,East
+2023-02-03 00:00:00,Laptop,Electronics,1250,1,Alice,North
+2023-02-15 00:00:00,Monitor,Electronics,300,3,Bob,West
+2023-02-28 00:00:00,Mouse,Accessories,27,4,David,South
+2023-03-10 00:00:00,Webcam,Accessories,50,2,Alice,East
+2023-03-22 00:00:00,Keyboard,Accessories,80,4,Charlie,East
+2023-03-30 00:00:00,Laptop,Electronics,1150,1,David,West
+2023-01-08 00:00:00,Headphones,Accessories,90,3,Bob,West

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataScribe - AI-Powered Data Query</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f9fafb;
+            --card-bg: #ffffff;
+            --primary-text: #111827;
+            --secondary-text: #6b7280;
+            --accent-color: #4f46e5;
+            --accent-hover: #4338ca;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--primary-text);
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 280px;
+            background-color: var(--card-bg);
+            border-right: 1px solid var(--border-color);
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+        }
+        
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .sidebar-logo {
+            width: 32px; height: 32px;
+            background-color: var(--accent-color);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: 600;
+        }
+        .sidebar-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .history-section {
+            margin-top: 1.5rem;
+        }
+        .history-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--secondary-text);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        .history-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .history-item {
+            font-size: 0.9rem;
+            color: var(--primary-text);
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .history-item:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .header p {
+            color: var(--secondary-text);
+            font-size: 1.1rem;
+        }
+
+        .main-form {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            display: flex;
+            gap: 1rem;
+            align-items: stretch;
+            margin-bottom: 1rem;
+        }
+        
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+        .upload-btn {
+            border: 1px solid var(--border-color);
+            color: var(--primary-text);
+            background-color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .upload-btn-wrapper:hover .upload-btn {
+            background-color: #f9fafb;
+        }
+        .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0; top: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .file-name-display {
+            display: flex;
+            align-items: center;
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+            padding-left: 1rem;
+        }
+        
+        .query-input {
+            flex-grow: 1;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .submit-btn {
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            background-color: var(--accent-color);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .submit-btn:hover { background-color: var(--accent-hover); }
+
+        .suggestions-section {
+            margin-top: 2rem;
+        }
+        .suggestions-title {
+            font-weight: 600;
+            color: var(--secondary-text);
+            margin-bottom: 1rem;
+        }
+        .suggestions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .suggestion-btn {
+            background-color: #eff6ff;
+            color: #3b82f6;
+            border: 1px solid #dbeafe;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            height: 100%;
+        }
+        .suggestion-btn:hover {
+            background-color: #dbeafe;
+        }
+
+        .result-section {
+            margin-top: 2rem;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+        .result-header {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .result-header h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0;
+        }
+        .result-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        .action-btn {
+             font-size: 0.875rem;
+            color: var(--accent-color);
+            background-color: #eef2ff;
+            border: 1px solid var(--accent-color);
+            border-radius: 6px;
+            padding: 0.4rem 0.8rem;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none; 
+        }
+        .action-btn:hover {
+            background-color: #e0e7ff;
+        }
+
+        .result-body {
+            padding: 1.5rem;
+            min-height: 100px;
+        }
+        .result-output {
+            background-color: #f3f4f6;
+            padding: 1rem;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: monospace;
+            font-size: 0.875rem;
+        }
+        .placeholder, .error-message {
+            color: var(--secondary-text);
+        }
+        .error-message { color: #ef4444; }
+
+        .generated-code-block {
+            display: none;
+            margin-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border-color); }
+            .main-content, .sidebar { padding: 1.5rem; }
+            .form-group { flex-direction: column; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">DS</div>
+            <h1 class="sidebar-title">DataScribe</h1>
+        </div>
+        <div class="history-section">
+            <h2 class="history-title">Query History</h2>
+            <ul class="history-list" id="history-list">
+                {% if query_history %}
+                    {% for item in query_history %}
+                        <li class="history-item">{{ item }}</li>
+                    {% endfor %}
+                {% else %}
+                    <li class="history-item" style="color: #9ca3af; cursor: default;">No history yet...</li>
+                {% endif %}
+            </ul>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <div class="container">
+            <header class="header">
+                <h1>Talk to Your Data</h1>
+                <p>Upload a CSV, ask a question in plain English, and get answers instantly.</p>
+            </header>
+
+            <form method="post" enctype="multipart/form-data" class="main-form" id="main-form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="upload-btn-wrapper">
+                        <button class="upload-btn" type="button">Upload CSV</button>
+                        <input type="file" name="csv_file" id="csv_file">
+                    </div>
+                    <span id="file-name-display" class="file-name-display">
+                        {% if file_name %}{{ file_name }}{% else %}No file selected{% endif %}
+                    </span>
+                </div>
+                
+                <div class="form-group">
+                    <input type="text" name="query" id="query-input" class="query-input" placeholder="Ask a question about your data..." value="{{ query_text|default:'' }}" required>
+                    <button type="submit" class="submit-btn">Analyze</button>
+                </div>
+            </form>
+
+            {% if suggested_questions %}
+            <section class="suggestions-section">
+                <h3 class="suggestions-title">Not sure what to ask? Try one of these:</h3>
+                <div class="suggestions-grid" id="suggestions-grid">
+                    {% for q in suggested_questions %}
+                    <button type="button" class="suggestion-btn">{{ q }}</button>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endif %}
+
+            <section class="result-section">
+                <div class="result-header">
+                    <h2>Query Result</h2>
+                    <div class="result-actions">
+                        {% if result %}
+                        <a href="{% url 'download_csv' %}" class="action-btn">Download CSV</a>
+                        {% endif %}
+                        {% if generated_code %}
+                        <button type="button" class="action-btn" id="code-toggle">Show Code</button>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="result-body">
+                    {% if error %}
+                        <p class="error-message">{{ error }}</p>
+                    {% elif result %}
+                        <pre class="result-output">{{ result }}</pre>
+                    {% else %}
+                        <p class="placeholder">Your results will appear here...</p>
+                    {% endif %}
+                    
+                    {% if generated_code %}
+                    <div class="generated-code-block" id="code-block">
+                        <h3 class="suggestions-title">AI-Generated Code:</h3>
+                        <pre class="result-output">{{ generated_code }}</pre>
+                    </div>
+                    {% endif %}
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        const fileInput = document.getElementById('csv_file');
+        const fileNameDisplay = document.getElementById('file-name-display');
+        const queryInput = document.getElementById('query-input');
+        const mainForm = document.getElementById('main-form');
+        
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length > 0) {
+                fileNameDisplay.textContent = fileInput.files[0].name;
+                queryInput.value = '';
+                mainForm.submit();
+            } else {
+                fileNameDisplay.textContent = 'No file selected';
+            }
+        });
+
+        document.getElementById('suggestions-grid')?.addEventListener('click', (e) => {
+            if (e.target.classList.contains('suggestion-btn')) {
+                queryInput.value = e.target.textContent;
+                mainForm.submit();
+            }
+        });
+
+        document.getElementById('history-list').addEventListener('click', (e) => {
+            if (e.target.classList.contains('history-item')) {
+                const query = e.target.textContent;
+                if (query !== 'No history yet...') {
+                    queryInput.value = query;
+                    mainForm.submit();
+                }
+            }
+        });
+
+        const codeToggleBtn = document.getElementById('code-toggle');
+        const codeBlock = document.getElementById('code-block');
+        codeToggleBtn?.addEventListener('click', () => {
+            const isHidden = codeBlock.style.display === 'none' || codeBlock.style.display === '';
+            codeBlock.style.display = isHidden ? 'block' : 'none';
+            codeToggleBtn.textContent = isHidden ? 'Hide Code' : 'Show Code';
+        });
+    </script>
+</body>
+</html>
+
