@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,7 +51,7 @@
             width: 100%;
             max-width: 900px;
         }
-        
+
         .sidebar-header {
             display: flex;
             align-items: center;
@@ -58,13 +59,19 @@
             padding-bottom: 1.5rem;
             border-bottom: 1px solid var(--border-color);
         }
+
         .sidebar-logo {
-            width: 32px; height: 32px;
+            width: 32px;
+            height: 32px;
             background-color: var(--accent-color);
             border-radius: 8px;
-            display: flex; align-items: center; justify-content: center;
-            color: white; font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
         }
+
         .sidebar-title {
             font-size: 1.25rem;
             font-weight: 600;
@@ -73,6 +80,7 @@
         .history-section {
             margin-top: 1.5rem;
         }
+
         .history-title {
             font-size: 0.875rem;
             font-weight: 600;
@@ -81,6 +89,7 @@
             letter-spacing: 0.05em;
             margin-bottom: 1rem;
         }
+
         .history-list {
             list-style: none;
             padding: 0;
@@ -89,6 +98,7 @@
             flex-direction: column;
             gap: 0.5rem;
         }
+
         .history-item {
             font-size: 0.9rem;
             color: var(--primary-text);
@@ -100,19 +110,22 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
+
         .history-item:hover {
             background-color: #f3f4f6;
         }
-        
+
         .header {
             text-align: center;
             margin-bottom: 2rem;
         }
+
         .header h1 {
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
+
         .header p {
             color: var(--secondary-text);
             font-size: 1.1rem;
@@ -131,12 +144,13 @@
             align-items: stretch;
             margin-bottom: 1rem;
         }
-        
+
         .upload-btn-wrapper {
             position: relative;
             overflow: hidden;
             display: inline-block;
         }
+
         .upload-btn {
             border: 1px solid var(--border-color);
             color: var(--primary-text);
@@ -148,16 +162,20 @@
             cursor: pointer;
             transition: background-color 0.2s;
         }
+
         .upload-btn-wrapper:hover .upload-btn {
             background-color: #f9fafb;
         }
+
         .upload-btn-wrapper input[type=file] {
             font-size: 100px;
             position: absolute;
-            left: 0; top: 0;
+            left: 0;
+            top: 0;
             opacity: 0;
             cursor: pointer;
         }
+
         .file-name-display {
             display: flex;
             align-items: center;
@@ -165,7 +183,7 @@
             font-size: 0.9rem;
             padding-left: 1rem;
         }
-        
+
         .query-input {
             flex-grow: 1;
             padding: 0.75rem 1rem;
@@ -187,21 +205,27 @@
             cursor: pointer;
             transition: background-color 0.2s;
         }
-        .submit-btn:hover { background-color: var(--accent-hover); }
+
+        .submit-btn:hover {
+            background-color: var(--accent-hover);
+        }
 
         .suggestions-section {
             margin-top: 2rem;
         }
+
         .suggestions-title {
             font-weight: 600;
             color: var(--secondary-text);
             margin-bottom: 1rem;
         }
+
         .suggestions-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1rem;
         }
+
         .suggestion-btn {
             background-color: #eff6ff;
             color: #3b82f6;
@@ -214,6 +238,7 @@
             transition: background-color 0.2s;
             height: 100%;
         }
+
         .suggestion-btn:hover {
             background-color: #dbeafe;
         }
@@ -225,6 +250,7 @@
             box-shadow: var(--shadow-sm);
             border: 1px solid var(--border-color);
         }
+
         .result-header {
             padding: 1rem 1.5rem;
             border-bottom: 1px solid var(--border-color);
@@ -232,17 +258,20 @@
             justify-content: space-between;
             align-items: center;
         }
+
         .result-header h2 {
             font-size: 1.25rem;
             font-weight: 600;
             margin: 0;
         }
+
         .result-actions {
             display: flex;
             gap: 1rem;
         }
+
         .action-btn {
-             font-size: 0.875rem;
+            font-size: 0.875rem;
             color: var(--accent-color);
             background-color: #eef2ff;
             border: 1px solid var(--accent-color);
@@ -250,8 +279,9 @@
             padding: 0.4rem 0.8rem;
             cursor: pointer;
             font-weight: 600;
-            text-decoration: none; 
+            text-decoration: none;
         }
+
         .action-btn:hover {
             background-color: #e0e7ff;
         }
@@ -260,6 +290,7 @@
             padding: 1.5rem;
             min-height: 100px;
         }
+
         .result-output {
             background-color: #f3f4f6;
             padding: 1rem;
@@ -269,10 +300,15 @@
             font-family: monospace;
             font-size: 0.875rem;
         }
-        .placeholder, .error-message {
+
+        .placeholder,
+        .error-message {
             color: var(--secondary-text);
         }
-        .error-message { color: #ef4444; }
+
+        .error-message {
+            color: #ef4444;
+        }
 
         .generated-code-block {
             display: none;
@@ -281,15 +317,115 @@
             padding-top: 1.5rem;
         }
 
-        @media (max-width: 768px) {
-            body { flex-direction: column; }
-            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border-color); }
-            .main-content, .sidebar { padding: 1.5rem; }
-            .form-group { flex-direction: column; }
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
         }
 
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--secondary-text);
+            transition: all 0.2s;
+            margin-bottom: -2px;
+        }
+
+        .tab-btn:hover {
+            color: var(--accent-color);
+        }
+
+        .tab-btn.active {
+            color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Code blocks */
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .code-header span {
+            font-weight: 600;
+            color: var(--primary-text);
+        }
+
+        .copy-btn {
+            padding: 0.4rem 0.8rem;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .copy-btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .copy-btn.copied {
+            background-color: #10b981;
+        }
+
+        .code-block {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            overflow-x: auto;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .main-content,
+            .sidebar {
+                padding: 1.5rem;
+            }
+
+            .form-group {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <aside class="sidebar">
@@ -301,11 +437,11 @@
             <h2 class="history-title">Query History</h2>
             <ul class="history-list" id="history-list">
                 {% if query_history %}
-                    {% for item in query_history %}
-                        <li class="history-item">{{ item }}</li>
-                    {% endfor %}
+                {% for item in query_history %}
+                <li class="history-item">{{ item }}</li>
+                {% endfor %}
                 {% else %}
-                    <li class="history-item" style="color: #9ca3af; cursor: default;">No history yet...</li>
+                <li class="history-item" style="color: #9ca3af; cursor: default;">No history yet...</li>
                 {% endif %}
             </ul>
         </div>
@@ -329,9 +465,10 @@
                         {% if file_name %}{{ file_name }}{% else %}No file selected{% endif %}
                     </span>
                 </div>
-                
+
                 <div class="form-group">
-                    <input type="text" name="query" id="query-input" class="query-input" placeholder="Ask a question about your data..." value="{{ query_text|default:'' }}" required>
+                    <input type="text" name="query" id="query-input" class="query-input"
+                        placeholder="Ask a question about your data..." value="{{ query_text|default:'' }}" required>
                     <button type="submit" class="submit-btn">Analyze</button>
                 </div>
             </form>
@@ -352,27 +489,66 @@
                     <h2>Query Result</h2>
                     <div class="result-actions">
                         {% if result %}
-                        <a href="{% url 'download_csv' %}" class="action-btn">Download CSV</a>
-                        {% endif %}
-                        {% if generated_code %}
-                        <button type="button" class="action-btn" id="code-toggle">Show Code</button>
+                        <a href="{% url 'download_csv' %}" class="action-btn">📥 Download CSV</a>
                         {% endif %}
                     </div>
                 </div>
                 <div class="result-body">
                     {% if error %}
-                        <p class="error-message">{{ error }}</p>
+                    <p class="error-message">{{ error }}</p>
                     {% elif result %}
-                        <pre class="result-output">{{ result }}</pre>
-                    {% else %}
-                        <p class="placeholder">Your results will appear here...</p>
-                    {% endif %}
-                    
-                    {% if generated_code %}
-                    <div class="generated-code-block" id="code-block">
-                        <h3 class="suggestions-title">AI-Generated Code:</h3>
-                        <pre class="result-output">{{ generated_code }}</pre>
+
+                    <!-- Tabs for Output, Python Code, SQL -->
+                    <div class="tabs">
+                        <button class="tab-btn active" onclick="switchTab('output', this)">📊 Output</button>
+                        <button class="tab-btn" onclick="switchTab('python', this)">🐍 Python Code</button>
+                        {% if sql_command %}
+                        <button class="tab-btn" onclick="switchTab('sql', this)">💾 SQL Command</button>
+                        {% endif %}
                     </div>
+
+                    <!-- Output Tab -->
+                    <div class="tab-content active" id="output-tab">
+                        <div class="code-header">
+                            <span>Query Results</span>
+                            <button class="copy-btn" onclick="copyToClipboard('result-output', this)">📋 Copy</button>
+                        </div>
+                        <pre class="result-output" id="result-output">{{ result }}</pre>
+
+                        {% if chart_image %}
+                        <div style="margin-top: 2rem;">
+                            <h3 style="margin-bottom: 1rem; font-size: 1.1rem; font-weight: 600;">Visualization</h3>
+                            <img src="data:image/png;base64,{{ chart_image }}" alt="Data Visualization"
+                                style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Python Code Tab -->
+                    <div class="tab-content" id="python-tab">
+                        <div class="code-header">
+                            <span>Generated Python/Pandas Code</span>
+                            <button class="copy-btn" onclick="copyToClipboard('python-code', this)">📋 Copy</button>
+                        </div>
+                        <pre class="code-block" id="python-code">{{ generated_code }}</pre>
+                    </div>
+
+                    <!-- SQL Command Tab -->
+                    {% if sql_command %}
+                    <div class="tab-content" id="sql-tab">
+                        <div class="code-header">
+                            <span>Equivalent SQL Query</span>
+                            <button class="copy-btn" onclick="copyToClipboard('sql-code', this)">📋 Copy</button>
+                        </div>
+                        <pre class="code-block" id="sql-code">{{ sql_command }}</pre>
+                        <p style="margin-top: 1rem; color: var(--secondary-text); font-size: 0.875rem;">
+                            💡 Note: This SQL assumes your data is in a table named 'data_table'
+                        </p>
+                    </div>
+                    {% endif %}
+
+                    {% else %}
+                    <p class="placeholder">Upload a CSV file and ask a question to see results here.</p>
                     {% endif %}
                 </div>
             </section>
@@ -385,7 +561,7 @@
         const fileNameDisplay = document.getElementById('file-name-display');
         const queryInput = document.getElementById('query-input');
         const mainForm = document.getElementById('main-form');
-        
+
         fileInput.addEventListener('change', () => {
             if (fileInput.files.length > 0) {
                 fileNameDisplay.textContent = fileInput.files[0].name;
@@ -413,14 +589,38 @@
             }
         });
 
-        const codeToggleBtn = document.getElementById('code-toggle');
-        const codeBlock = document.getElementById('code-block');
-        codeToggleBtn?.addEventListener('click', () => {
-            const isHidden = codeBlock.style.display === 'none' || codeBlock.style.display === '';
-            codeBlock.style.display = isHidden ? 'block' : 'none';
-            codeToggleBtn.textContent = isHidden ? 'Hide Code' : 'Show Code';
-        });
+        // Tab switching
+        function switchTab(tabName, clickedButton) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(tabName + '-tab').classList.add('active');
+            clickedButton.classList.add('active');
+        }
+
+        // Copy to clipboard
+        function copyToClipboard(elementId, button) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = button.textContent;
+                button.textContent = '✅ Copied!';
+                button.classList.add('copied');
+
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+                alert('Failed to copy to clipboard');
+            });
+        }
     </script>
 </body>
-</html>
 
+</html>

@@ -1,0 +1,16 @@
+transaction_id,customer_id,product_id,amount,transaction_date,payment_method,status,discount_applied
+T001,C101,P201,150.00,2024-01-15,Credit Card,Completed,0.10
+T002,C102,P202,75.50,2024-01-15,PayPal,Completed,0.00
+T003,C103,P203,220.00,2024-01-16,Credit Card,Completed,0.15
+T004,C101,P204,89.99,2024-01-16,Debit Card,Failed,0.00
+T005,C104,P201,150.00,2024-01-17,Credit Card,Completed,0.10
+T006,C105,P205,310.00,2024-01-17,PayPal,Pending,0.05
+T007,C102,P202,75.50,2024-01-18,Credit Card,Completed,0.00
+T008,C106,P206,425.00,2024-01-18,Credit Card,Completed,0.20
+T009,C103,P201,150.00,2024-01-19,Debit Card,Completed,0.10
+T010,C107,P207,199.99,2024-01-19,PayPal,Completed,0.00
+T011,C101,P203,220.00,2024-01-20,Credit Card,Completed,0.15
+T012,C108,P208,550.00,2024-01-20,Credit Card,Failed,0.00
+T013,C104,P202,75.50,2024-01-21,PayPal,Completed,0.00
+T014,C109,P209,99.00,2024-01-21,Debit Card,Completed,0.05
+T015,C105,P201,150.00,2024-01-22,Credit Card,Completed,0.10

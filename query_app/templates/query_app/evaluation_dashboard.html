@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Evaluation Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f9fafb;
+            --card-bg: #ffffff;
+            --primary-text: #111827;
+            --secondary-text: #6b7280;
+            --accent-color: #4f46e5;
+            --accent-hover: #4338ca;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --border-color: #e5e7eb;
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--primary-text);
+            margin: 0;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: var(--secondary-text);
+            font-size: 1.1rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 2rem;
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .objective-section {
+            margin-bottom: 2rem;
+        }
+
+        .objective-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            background-color: var(--accent-color);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-text);
+        }
+
+        .btn-secondary:hover {
+            background-color: #4b5563;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .metric-card {
+            background-color: #f3f4f6;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--secondary-text);
+            margin-top: 0.5rem;
+        }
+
+        .success-badge {
+            background-color: var(--success-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .warning-badge {
+            background-color: var(--warning-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .comparison-table th {
+            background-color: #f3f4f6;
+            font-weight: 600;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-box {
+            background-color: #eff6ff;
+            border-left: 4px solid var(--accent-color);
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: var(--secondary-text);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Research Evaluation Dashboard</h1>
+            <p>Empirical Validation & Comparative Analysis</p>
+        </header>
+
+        <div class="card">
+            <h2>Research Objectives</h2>
+            
+            <div class="objective-section">
+                <div class="objective-title">Objective 2: Empirical Validation (90% Benchmark)</div>
+                <p>Validate the system's query generation accuracy through controlled evaluation with a target of 90% success rate.</p>
+                <div class="info-box">
+                    <strong>Test Suite:</strong> 20 diverse queries across 3 datasets<br>
+                    <strong>Complexity Levels:</strong> Simple, Medium, Complex<br>
+                    <strong>Categories:</strong> Aggregation, Filtering, Grouping, Sorting
+                </div>
+            </div>
+
+            <div class="objective-section">
+                <div class="objective-title">Objective 3: Comparative Analysis</div>
+                <p>Quantify performance gains of LLM-based architecture against non-grounded baseline model.</p>
+                <div class="info-box">
+                    <strong>Models:</strong> Gemini 2.5 Flash (LLM) vs Template-Based (Baseline)<br>
+                    <strong>Metrics:</strong> Accuracy, Success Rate, Performance Gain
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Run Evaluation</h2>
+            <p>Execute the full evaluation suite to validate both research objectives.</p>
+            
+            <div class="action-buttons">
+                <a href="{% url 'run_evaluation' %}" class="btn">Run Full Evaluation</a>
+                <a href="{% url 'index' %}" class="btn btn-secondary">Back to Main App</a>
+            </div>
+        </div>
+
+        {% if results %}
+        <div class="card">
+            <h2>Evaluation Results</h2>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">{{ gemini_accuracy }}%</div>
+                    <div class="metric-label">Gemini Accuracy</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">{{ baseline_accuracy }}%</div>
+                    <div class="metric-label">Baseline Accuracy</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">+{{ improvement }}%</div>
+                    <div class="metric-label">Performance Gain</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">
+                        {% if meets_target %}
+                        <span class="success-badge">✓ YES</span>
+                        {% else %}
+                        <span class="warning-badge">✗ NO</span>
+                        {% endif %}
+                    </div>
+                    <div class="metric-label">Meets 90% Target</div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Detailed Comparison</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Gemini (LLM)</th>
+                        <th>Baseline</th>
+                        <th>Improvement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Total Tests</td>
+                        <td>{{ total_tests }}</td>
+                        <td>{{ total_tests }}</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Successful</td>
+                        <td>{{ gemini_successful }}</td>
+                        <td>{{ baseline_successful }}</td>
+                        <td>+{{ gemini_successful|add:"-"|add:baseline_successful }}</td>
+                    </tr>
+                    <tr>
+                        <td>Accuracy</td>
+                        <td>{{ gemini_accuracy }}%</td>
+                        <td>{{ baseline_accuracy }}%</td>
+                        <td>+{{ improvement }}%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="action-buttons">
+                <a href="{% url 'download_evaluation_results' %}" class="btn">Download Full Report (JSON)</a>
+                <a href="{% url 'download_comparison_csv' %}" class="btn btn-secondary">Download Comparison (CSV)</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

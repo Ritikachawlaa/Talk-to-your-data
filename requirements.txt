@@ -3,3 +3,5 @@ pandas
 SQLAlchemy
 google-generativeai
 python-dotenv
+matplotlib
+seaborn

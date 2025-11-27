@@ -1,0 +1,198 @@
+{
+  "test_cases": [
+    {
+      "id": 1,
+      "dataset": "sales_simple.csv",
+      "query": "What is the total revenue?",
+      "complexity": "simple",
+      "category": "aggregation",
+      "expected_operation": "sum",
+      "expected_columns": ["price", "quantity"]
+    },
+    {
+      "id": 2,
+      "dataset": "sales_simple.csv",
+      "query": "How many products were sold?",
+      "complexity": "simple",
+      "category": "aggregation",
+      "expected_operation": "sum",
+      "expected_columns": ["quantity"]
+    },
+    {
+      "id": 3,
+      "dataset": "sales_simple.csv",
+      "query": "Show me the top 3 products by revenue",
+      "complexity": "medium",
+      "category": "sorting",
+      "expected_operation": "groupby_sort",
+      "expected_columns": ["product", "price", "quantity"]
+    },
+    {
+      "id": 4,
+      "dataset": "sales_simple.csv",
+      "query": "What is the average price per product?",
+      "complexity": "medium",
+      "category": "aggregation",
+      "expected_operation": "mean",
+      "expected_columns": ["price"]
+    },
+    {
+      "id": 5,
+      "dataset": "sales_simple.csv",
+      "query": "Which salesperson made the most sales?",
+      "complexity": "medium",
+      "category": "groupby",
+      "expected_operation": "groupby_count",
+      "expected_columns": ["salesperson"]
+    },
+    {
+      "id": 6,
+      "dataset": "sales_simple.csv",
+      "query": "Show sales by region",
+      "complexity": "medium",
+      "category": "groupby",
+      "expected_operation": "groupby_sum",
+      "expected_columns": ["region", "price", "quantity"]
+    },
+    {
+      "id": 7,
+      "dataset": "sales_simple.csv",
+      "query": "What is the total revenue for Electronics category?",
+      "complexity": "medium",
+      "category": "filtering",
+      "expected_operation": "filter_sum",
+      "expected_columns": ["category", "price", "quantity"]
+    },
+    {
+      "id": 8,
+      "dataset": "employees_medium.csv",
+      "query": "How many employees are in each department?",
+      "complexity": "simple",
+      "category": "groupby",
+      "expected_operation": "groupby_count",
+      "expected_columns": ["department"]
+    },
+    {
+      "id": 9,
+      "dataset": "employees_medium.csv",
+      "query": "What is the average salary by department?",
+      "complexity": "medium",
+      "category": "aggregation",
+      "expected_operation": "groupby_mean",
+      "expected_columns": ["department", "salary"]
+    },
+    {
+      "id": 10,
+      "dataset": "employees_medium.csv",
+      "query": "Show employees with salary greater than 90000",
+      "complexity": "simple",
+      "category": "filtering",
+      "expected_operation": "filter",
+      "expected_columns": ["salary"]
+    },
+    {
+      "id": 11,
+      "dataset": "employees_medium.csv",
+      "query": "Who has the highest performance score?",
+      "complexity": "simple",
+      "category": "sorting",
+      "expected_operation": "max",
+      "expected_columns": ["performance_score", "name"]
+    },
+    {
+      "id": 12,
+      "dataset": "employees_medium.csv",
+      "query": "List employees hired after 2020",
+      "complexity": "medium",
+      "category": "filtering",
+      "expected_operation": "date_filter",
+      "expected_columns": ["hire_date"]
+    },
+    {
+      "id": 13,
+      "dataset": "employees_medium.csv",
+      "query": "What is the total salary expense for Engineering department?",
+      "complexity": "medium",
+      "category": "filtering",
+      "expected_operation": "filter_sum",
+      "expected_columns": ["department", "salary"]
+    },
+    {
+      "id": 14,
+      "dataset": "transactions_complex.csv",
+      "query": "How many transactions were completed?",
+      "complexity": "simple",
+      "category": "filtering",
+      "expected_operation": "filter_count",
+      "expected_columns": ["status"]
+    },
+    {
+      "id": 15,
+      "dataset": "transactions_complex.csv",
+      "query": "What is the total revenue from completed transactions?",
+      "complexity": "medium",
+      "category": "filtering",
+      "expected_operation": "filter_sum",
+      "expected_columns": ["status", "amount"]
+    },
+    {
+      "id": 16,
+      "dataset": "transactions_complex.csv",
+      "query": "Show transactions by payment method",
+      "complexity": "medium",
+      "category": "groupby",
+      "expected_operation": "groupby_count",
+      "expected_columns": ["payment_method"]
+    },
+    {
+      "id": 17,
+      "dataset": "transactions_complex.csv",
+      "query": "What is the average discount applied?",
+      "complexity": "simple",
+      "category": "aggregation",
+      "expected_operation": "mean",
+      "expected_columns": ["discount_applied"]
+    },
+    {
+      "id": 18,
+      "dataset": "transactions_complex.csv",
+      "query": "Which customer made the most transactions?",
+      "complexity": "medium",
+      "category": "groupby",
+      "expected_operation": "groupby_count",
+      "expected_columns": ["customer_id"]
+    },
+    {
+      "id": 19,
+      "dataset": "transactions_complex.csv",
+      "query": "Show failed transactions",
+      "complexity": "simple",
+      "category": "filtering",
+      "expected_operation": "filter",
+      "expected_columns": ["status"]
+    },
+    {
+      "id": 20,
+      "dataset": "transactions_complex.csv",
+      "query": "What is the total amount of transactions with discount greater than 10%?",
+      "complexity": "complex",
+      "category": "filtering",
+      "expected_operation": "filter_sum",
+      "expected_columns": ["discount_applied", "amount"]
+    }
+  ],
+  "metadata": {
+    "total_test_cases": 20,
+    "complexity_distribution": {
+      "simple": 8,
+      "medium": 11,
+      "complex": 1
+    },
+    "category_distribution": {
+      "aggregation": 5,
+      "filtering": 8,
+      "groupby": 6,
+      "sorting": 1
+    }
+  }
+}

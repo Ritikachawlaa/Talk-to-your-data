@@ -1,0 +1,15 @@
+employee_id,name,department,salary,hire_date,performance_score,manager_id
+101,Alice Johnson,Engineering,95000,2020-03-15,4.5,201
+102,Bob Smith,Engineering,87000,2021-06-01,4.2,201
+103,Carol White,Marketing,72000,2019-11-20,4.8,202
+104,David Brown,Sales,68000,2022-01-10,3.9,203
+105,Eve Davis,Engineering,92000,2020-08-25,4.6,201
+106,Frank Miller,Marketing,75000,2021-03-12,4.1,202
+107,Grace Lee,Sales,71000,2020-12-05,4.4,203
+108,Henry Wilson,HR,65000,2022-05-18,4.0,204
+109,Iris Taylor,Engineering,98000,2019-07-30,4.7,201
+110,Jack Anderson,Sales,69000,2021-09-22,4.3,203
+201,Sarah Manager,Engineering,125000,2018-01-15,4.9,
+202,Tom Director,Marketing,115000,2017-05-20,4.8,
+203,Lisa Head,Sales,110000,2018-09-10,4.6,
+204,Mike Chief,HR,105000,2019-02-28,4.5,
